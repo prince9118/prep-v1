@@ -1,4 +1,4 @@
-# backpack-depth-indexer
+# Perpetual futures-v1
 
 To install dependencies:
 
