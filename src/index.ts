@@ -11,7 +11,7 @@ const users = [{
          availabe: 2000,
          locked: 1000
     },
-     positions: [
+    positions: [
         { market: "SOL", type: "LONG", qty: 10, margin: 500, liquidationPrice: 80, averagePrice: 90 },
         { market: "ETH", type: "SHORT", qty: 1, margin: 500, liquidationPrice: 2000, averagePrice: 1900 }
     ],
@@ -96,3 +96,7 @@ async function liqudationChecks(asset: string, price: number) {
 async function onPriceUpdateFromBinance(asset: string, price: number) {
     liqudationChecks(asset, price);   
 }
+app.listen(3000,()=>{
+    console.log('BACKEND IS RUNNIGN ON PORT 3000');
+}
+);
