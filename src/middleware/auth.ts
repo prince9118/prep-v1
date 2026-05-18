@@ -1,13 +1,12 @@
 // check userID is valid on every protected route
 import type{Request, Response,NextFunction} from "express";
-import { getUserById } from "../store";
-import { success } from "zod";
+import { getUserById } from "../store.ts";
 export function authMiddleware(req:Request,res:Response,next:NextFunction){
     const userId=Number(req.headers["x-user-id"]);
     if(!userId){
         res.status(400).json({
             success:false,
-            message:"Missing fx-user-id header"
+            message:"Missing x-user-id header"
         });
         return;
     }

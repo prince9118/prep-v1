@@ -1,6 +1,3 @@
-import type { NumberLiteralType } from "typescript";
-
-// all TypeScipt types
 export type OrderType="limit"|"market";
 export type PositionType="LONG" | "SHORT";
 export type OrderStatus="open"| "filled"|"cancelled"|"partial";
@@ -20,7 +17,7 @@ export interface Position {
     pnl:number;
     isClosed:boolean;
     closedAt?:Date;
-    closedPrice?:number;
+    closePrice?:number;
 }
 export interface Order{
     orderId:number;
@@ -35,7 +32,7 @@ export interface Order{
     createdAt:Date;
 }
 export interface User{
- userId:Number;
+ userId:number;
  username:string;
  password:string;
  collateral:Collateral;
@@ -48,16 +45,21 @@ export interface OpenOrder{
     qty:number;
     filledQty:number;
     orderId:number;
-    createAt:Date;
+    createdAt:Date;
 }
 
-export interface Pricelevel{
-    aavailableQty:number;
-    openOrder:OpenOrder[];
+// export interface Pricelevel{
+//     availableQty:number;
+//     openOrders:OpenOrder[];
+// }
+export interface PriceLevel {
+  availableQty: number;
+  openOrders: OpenOrder[];
 }
+
 export interface Orderbook{
-    bids:Record<string,Pricelevel>;
-    asks:Record<string,Pricelevel>;
+    bids:Record<string,PriceLevel>;
+    asks:Record<string,PriceLevel>;
     lastTradedPrice:number;
     indexPrice:number;
 }
